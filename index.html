@@ -6,26 +6,16 @@
   <title>That Bloke in the Big Smoke — Hari's Digital Wunderkammer</title>
   <meta name="description" content="Hari P Ramanathan's Digital Wunderkammer. A curated cabinet of curiosities spanning sights, sounds, screens, places, threads and words.">
 
-  <!-- Google Fonts — includes UnifrakturMaguntia directly -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
   <style>
-    /* Samarkan — shirorekha style */
     @font-face {
       font-family: "Samarkan";
       src: url("https://db.onlinewebfonts.com/t/8107f8b787a40a84fbf3ee220abd84aa.woff2") format("woff2"),
            url("https://db.onlinewebfonts.com/t/8107f8b787a40a84fbf3ee220abd84aa.woff") format("woff"),
            url("https://db.onlinewebfonts.com/t/8107f8b787a40a84fbf3ee220abd84aa.ttf") format("truetype");
-      font-display: swap;
-    }
-
-    /* DSEG7 — seven-segment digital clock font */
-    @font-face {
-      font-family: "DSEG7";
-      src: url("https://cdn.jsdelivr.net/gh/keshikan/DSEG/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2") format("woff2"),
-           url("https://cdn.jsdelivr.net/gh/keshikan/DSEG/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff") format("woff");
       font-display: swap;
     }
 
@@ -38,7 +28,6 @@
       --drawer-bg:    #4f2860;
       --drawer-bd:    #8a5a9a;
       --orange:       #ff8c42;
-      --green:        #4caf82;
       --peach:        #ffd0a0;
       --lavender:     #c4a0d4;
       --cream:        #f0e8d8;
@@ -55,7 +44,7 @@
       --font-serif:   'Lora', Georgia, serif;
       --font-fraktur: 'UnifrakturMaguntia', 'Times New Roman', serif;
       --font-deva:    'Samarkan', cursive;
-      --font-digital: 'DSEG7', 'Courier New', monospace;
+      --font-digital: 'Orbitron', 'Courier New', monospace;
     }
 
     body {
@@ -84,15 +73,12 @@
     .nav-title {
       font-family: var(--font-title);
       font-size: 26px;
-      color: var(--green);
+      color: var(--orange);
       letter-spacing: 0.04em;
       line-height: 1;
       white-space: nowrap;
       text-decoration: none;
-      transition: color 0.2s;
     }
-
-    .nav-title:hover { color: var(--orange); }
 
     .nav-links {
       display: flex;
@@ -157,7 +143,6 @@
       margin-bottom: 14px;
     }
 
-    /* Main hero title */
     .cabinet-title {
       display: flex;
       align-items: baseline;
@@ -174,12 +159,13 @@
     }
 
     .sub-digital {
-      font-family: 'DSEG7', 'Courier New', monospace;
-      font-size: 22px;
+      font-family: 'Orbitron', 'Courier New', monospace;
+      font-size: 20px;
+      font-weight: 700;
       color: var(--lavender);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       position: relative;
-      top: -5px;
+      top: -4px;
     }
 
     .sub-wunder {
@@ -499,7 +485,7 @@
   <!-- CABINET HERO -->
   <header class="cabinet-hero">
     <div class="cabinet-header">
-      <div class="cabinet-eyebrow">A &middot; Cabinet &middot; of &middot; Curiosities</div>
+      <div class="cabinet-eyebrow">Cabinet &middot; of &middot; Curiosities</div>
       <div class="cabinet-title">
         <span class="sub-hari">Hari's</span>
         <span class="sub-digital">DIGITAL</span>
