@@ -8,10 +8,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Tamil&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Samarkan — shirorekha Devanagari-style */
+    /* Samarkan */
     @font-face {
       font-family: "Samarkan";
       src: url("https://db.onlinewebfonts.com/t/8107f8b787a40a84fbf3ee220abd84aa.woff2") format("woff2"),
@@ -20,14 +20,14 @@
       font-display: swap;
     }
 
-    /* UnifrakturMaguntia — Fraktur for Wunderkammer */
+    /* Fraktur — loaded independently to avoid stack conflicts */
     @font-face {
-      font-family: "UnifrakturMaguntia";
+      font-family: "Fraktur";
       src: url("https://fonts.gstatic.com/s/unifrakturmaguntia/v16/WWXPlh98MazZmIv8yn7sD5f4XML9PovqTQ.woff2") format("woff2");
       font-display: swap;
     }
 
-    /* DSEG7 — authentic seven-segment digital clock font */
+    /* DSEG7 — authentic seven-segment digital clock */
     @font-face {
       font-family: "DSEG7";
       src: url("https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-BoldItalic.woff2") format("woff2"),
@@ -55,14 +55,9 @@
       --text-muted:   #a09080;
       --footer-bg:    #3a1a4a;
       --footer-bd:    #5a3a6a;
-
       --font-title:   'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
       --font-sans:    'DM Sans', Arial, sans-serif;
       --font-serif:   'Lora', Georgia, serif;
-      --font-fraktur: 'UnifrakturMaguntia', 'Times New Roman', serif;
-      --font-deva:    'Samarkan', cursive;
-      --font-digital: 'DSEG7', 'Courier New', monospace;
-      --font-tamil:   'Noto Sans Tamil', sans-serif;
     }
 
     body {
@@ -110,7 +105,7 @@
       font-family: var(--font-sans);
       font-size: 12px;
       font-weight: 600;
-      color: var(--lavender);
+      color: #d8b8e8;
       text-decoration: none;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -129,8 +124,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 13px;
+      font-family: var(--font-sans);
+      font-size: 12px;
       font-weight: 700;
       color: var(--peach);
       text-decoration: none;
@@ -148,72 +143,49 @@
 
     .cabinet-header {
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
-    /* Eyebrow */
     .cabinet-eyebrow {
       font-family: var(--font-sans);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #b090c8;
+      color: #c8a8d8;
       margin-bottom: 14px;
     }
 
-    /* Main hero title */
     .cabinet-title {
       display: flex;
       align-items: baseline;
       justify-content: center;
       gap: 12px;
       white-space: nowrap;
-      margin-bottom: 16px;
     }
 
     .sub-hari {
-      font-family: var(--font-deva);
+      font-family: 'Samarkan', cursive;
       font-size: 52px;
       color: var(--peach);
       line-height: 1;
     }
 
     .sub-digital {
-      font-family: var(--font-digital);
+      font-family: 'DSEG7', 'Courier New', monospace;
       font-size: 22px;
       font-weight: 700;
       color: var(--lavender);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       position: relative;
-      top: -4px;
+      top: -5px;
     }
 
     .sub-wunder {
-      font-family: var(--font-fraktur);
+      font-family: 'Fraktur', 'Times New Roman', serif;
       font-size: 58px;
       color: var(--peach);
       line-height: 1;
-    }
-
-    /* Alamaari tagline — sits right above drawers */
-    .alamaari-line {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 500;
-      color: #c4a0d4;
-      text-align: center;
-      letter-spacing: 0.03em;
-      margin-bottom: 14px;
-      line-height: 1.6;
-    }
-
-    .alamaari-line em { font-style: italic; }
-
-    .alamaari-tamil {
-      font-family: var(--font-tamil);
-      font-size: 15px;
-      color: var(--peach);
     }
 
     /* ── DRAWERS ── */
@@ -253,35 +225,33 @@
 
     .drawer-icon {
       font-size: 22px;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
       display: block;
       line-height: 1;
-      transition: font-size 0.15s, transform 0.15s;
+      transition: transform 0.15s;
     }
 
-    .drawer:hover .drawer-icon {
-      font-size: 26px;
-      transform: scale(1.1);
-    }
+    .drawer:hover .drawer-icon { transform: scale(1.18); }
 
     .drawer-label {
       font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 700;
       color: var(--peach);
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
 
     .drawer-sub {
       font-family: var(--font-sans);
-      font-size: 10px;
-      color: #b090c0;
+      font-size: 11px;
+      font-weight: 400;
+      color: #c4a0d4;
       line-height: 1.4;
     }
 
-    /* ── SEARCH SECTION ── */
+    /* ── SEARCH ── */
     .search-section {
       background: var(--cream);
       padding: 14px 40px;
@@ -328,7 +298,7 @@
     .dare-btn:hover { background: var(--drawer-bg); }
     .dare-btn:active { transform: scale(0.98); }
 
-    /* ── MAIN BODY ── */
+    /* ── BODY ── */
     .site-body {
       flex: 1;
       background: var(--cream);
@@ -336,17 +306,17 @@
     }
 
     .recently-label {
-      font-family: var(--font-serif);
-      font-size: 15px;
-      font-style: italic;
+      font-family: var(--font-sans);
+      font-size: 14px;
       font-weight: 700;
-      color: #8a7a60;
+      color: #7a6a50;
       margin-bottom: 14px;
+      letter-spacing: 0.01em;
     }
 
     .body-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 320px;
+      grid-template-columns: 1fr 1fr 300px;
       gap: 16px;
     }
 
@@ -371,30 +341,14 @@
 
     .spec-card-thumb {
       width: 100%;
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      flex-shrink: 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .spec-card-thumb img {
-      width: 100%;
-      height: 100%;
+      height: 120px;
       object-fit: cover;
       display: block;
-    }
-
-    /* Fallback emoji shown only when no img present */
-    .spec-card-thumb .thumb-emoji {
-      font-size: 48px;
+      flex-shrink: 0;
     }
 
     .spec-card-body {
-      padding: 16px 20px 18px;
+      padding: 14px 18px 16px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -406,7 +360,7 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -423,11 +377,11 @@
     }
 
     .spec-title {
-      font-family: var(--font-serif);
-      font-size: 20px;
+      font-family: var(--font-sans);
+      font-size: 19px;
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 8px;
+      margin-bottom: 7px;
       line-height: 1.2;
     }
 
@@ -436,7 +390,7 @@
       font-size: 13px;
       color: var(--text-mid);
       line-height: 1.6;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       flex: 1;
     }
 
@@ -453,7 +407,7 @@
       background: var(--card-white);
       border: 1px solid var(--card-border);
       border-radius: 10px;
-      padding: 16px 18px;
+      padding: 14px 16px;
       text-decoration: none;
       display: block;
       transition: border-color 0.2s, transform 0.15s;
@@ -471,12 +425,12 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .side-title {
-      font-family: var(--font-serif);
-      font-size: 15px;
+      font-family: var(--font-sans);
+      font-size: 14px;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 4px;
@@ -506,7 +460,7 @@
     }
 
     .footer-name {
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-size: 12px;
       font-style: italic;
       color: var(--lavender);
@@ -546,22 +500,12 @@
   <!-- CABINET HERO -->
   <header class="cabinet-hero">
     <div class="cabinet-header">
-
       <div class="cabinet-eyebrow">A Cabinet of Curiosities</div>
-
       <div class="cabinet-title">
         <span class="sub-hari">Hari's</span>
         <span class="sub-digital">DIGITAL</span>
         <span class="sub-wunder">Wunderkammer</span>
       </div>
-
-      <div class="alamaari-line">
-        The Alamaari &nbsp;(<span class="alamaari-tamil">அலமாரி</span>)
-        &nbsp;·&nbsp; <em>alam·aa·ri</em>
-        &nbsp;·&nbsp; Tamil for a cabinet
-        &nbsp;·&nbsp; from Portuguese <em>armário</em>
-      </div>
-
     </div>
 
     <div class="drawer-row">
@@ -609,8 +553,8 @@
     <input
       class="search-input"
       type="text"
-      placeholder="Search the Alamaari — try 'India', 'etymology', 'London', 'jazz'..."
-      aria-label="Search the Alamaari"
+      placeholder="Search the Wunderkammer — try 'India', 'etymology', 'London', 'jazz'..."
+      aria-label="Search the Wunderkammer"
     >
     <button class="dare-btn" onclick="alert('Coming soon — the lucky dip is being stocked.')">
       🎲&nbsp; if ye dare
@@ -622,12 +566,13 @@
     <div class="recently-label">Recently added to the collection</div>
     <div class="body-grid">
 
-      <!-- Card 1: BBC India playlist — photo thumb -->
+      <!-- Card 1: BBC India — radio/India placeholder image -->
       <a href="/screens/bbc-india-playlist" class="spec-card">
-        <div class="spec-card-thumb" style="background: #2a1a0e;">
-          <!-- Replace src with a real photo when available -->
-          <span class="thumb-emoji">📻</span>
-        </div>
+        <img
+          class="spec-card-thumb"
+          src="https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=600&q=80"
+          alt="Vintage radio"
+        >
         <div class="spec-card-body">
           <div class="spec-tag" style="color: #c05a00;">Screens</div>
           <div class="spec-title">BBC India playlist</div>
@@ -636,12 +581,13 @@
         </div>
       </a>
 
-      <!-- Card 2: On serendipity — photo thumb -->
+      <!-- Card 2: Serendipity — old books/letters placeholder -->
       <a href="/words/on-serendipity" class="spec-card">
-        <div class="spec-card-thumb" style="background: #1a1030;">
-          <!-- Replace src with a real photo when available -->
-          <span class="thumb-emoji">📖</span>
-        </div>
+        <img
+          class="spec-card-thumb"
+          src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=80"
+          alt="Old books"
+        >
         <div class="spec-card-body">
           <div class="spec-tag" style="color: #6a2a8a;">Words</div>
           <div class="spec-title">On "serendipity"</div>
