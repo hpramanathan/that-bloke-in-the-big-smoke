@@ -6,12 +6,13 @@
   <title>That Bloke in the Big Smoke — Hari's Digital Wunderkammer</title>
   <meta name="description" content="Hari P Ramanathan's Digital Wunderkammer. A curated cabinet of curiosities spanning sights, sounds, screens, places, threads and words.">
 
+  <!-- Google Fonts — includes UnifrakturMaguntia directly -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
   <style>
-    /* Samarkan */
+    /* Samarkan — shirorekha style */
     @font-face {
       font-family: "Samarkan";
       src: url("https://db.onlinewebfonts.com/t/8107f8b787a40a84fbf3ee220abd84aa.woff2") format("woff2"),
@@ -20,18 +21,11 @@
       font-display: swap;
     }
 
-    /* Fraktur — loaded independently to avoid stack conflicts */
-    @font-face {
-      font-family: "Fraktur";
-      src: url("https://fonts.gstatic.com/s/unifrakturmaguntia/v16/WWXPlh98MazZmIv8yn7sD5f4XML9PovqTQ.woff2") format("woff2");
-      font-display: swap;
-    }
-
-    /* DSEG7 — authentic seven-segment digital clock */
+    /* DSEG7 — seven-segment digital clock font */
     @font-face {
       font-family: "DSEG7";
-      src: url("https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-BoldItalic.woff2") format("woff2"),
-           url("https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-BoldItalic.woff") format("woff");
+      src: url("https://cdn.jsdelivr.net/gh/keshikan/DSEG/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2") format("woff2"),
+           url("https://cdn.jsdelivr.net/gh/keshikan/DSEG/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff") format("woff");
       font-display: swap;
     }
 
@@ -44,6 +38,7 @@
       --drawer-bg:    #4f2860;
       --drawer-bd:    #8a5a9a;
       --orange:       #ff8c42;
+      --green:        #4caf82;
       --peach:        #ffd0a0;
       --lavender:     #c4a0d4;
       --cream:        #f0e8d8;
@@ -58,6 +53,9 @@
       --font-title:   'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
       --font-sans:    'DM Sans', Arial, sans-serif;
       --font-serif:   'Lora', Georgia, serif;
+      --font-fraktur: 'UnifrakturMaguntia', 'Times New Roman', serif;
+      --font-deva:    'Samarkan', cursive;
+      --font-digital: 'DSEG7', 'Courier New', monospace;
     }
 
     body {
@@ -86,12 +84,15 @@
     .nav-title {
       font-family: var(--font-title);
       font-size: 26px;
-      color: var(--orange);
+      color: var(--green);
       letter-spacing: 0.04em;
       line-height: 1;
       white-space: nowrap;
       text-decoration: none;
+      transition: color 0.2s;
     }
+
+    .nav-title:hover { color: var(--orange); }
 
     .nav-links {
       display: flex;
@@ -103,7 +104,7 @@
 
     .nav-link {
       font-family: var(--font-sans);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       color: #d8b8e8;
       text-decoration: none;
@@ -156,6 +157,7 @@
       margin-bottom: 14px;
     }
 
+    /* Main hero title */
     .cabinet-title {
       display: flex;
       align-items: baseline;
@@ -174,7 +176,6 @@
     .sub-digital {
       font-family: 'DSEG7', 'Courier New', monospace;
       font-size: 22px;
-      font-weight: 700;
       color: var(--lavender);
       letter-spacing: 0.04em;
       position: relative;
@@ -182,7 +183,7 @@
     }
 
     .sub-wunder {
-      font-family: 'Fraktur', 'Times New Roman', serif;
+      font-family: 'UnifrakturMaguntia', 'Times New Roman', serif;
       font-size: 58px;
       color: var(--peach);
       line-height: 1;
@@ -246,7 +247,6 @@
     .drawer-sub {
       font-family: var(--font-sans);
       font-size: 11px;
-      font-weight: 400;
       color: #c4a0d4;
       line-height: 1.4;
     }
@@ -311,7 +311,6 @@
       font-weight: 700;
       color: #7a6a50;
       margin-bottom: 14px;
-      letter-spacing: 0.01em;
     }
 
     .body-grid {
@@ -460,7 +459,7 @@
     }
 
     .footer-name {
-      font-family: var(--font-sans);
+      font-family: var(--font-serif);
       font-size: 12px;
       font-style: italic;
       color: var(--lavender);
@@ -500,7 +499,7 @@
   <!-- CABINET HERO -->
   <header class="cabinet-hero">
     <div class="cabinet-header">
-      <div class="cabinet-eyebrow">A Cabinet of Curiosities</div>
+      <div class="cabinet-eyebrow">A &middot; Cabinet &middot; of &middot; Curiosities</div>
       <div class="cabinet-title">
         <span class="sub-hari">Hari's</span>
         <span class="sub-digital">DIGITAL</span>
@@ -566,7 +565,6 @@
     <div class="recently-label">Recently added to the collection</div>
     <div class="body-grid">
 
-      <!-- Card 1: BBC India — radio/India placeholder image -->
       <a href="/screens/bbc-india-playlist" class="spec-card">
         <img
           class="spec-card-thumb"
@@ -581,7 +579,6 @@
         </div>
       </a>
 
-      <!-- Card 2: Serendipity — old books/letters placeholder -->
       <a href="/words/on-serendipity" class="spec-card">
         <img
           class="spec-card-thumb"
@@ -596,7 +593,6 @@
         </div>
       </a>
 
-      <!-- Sidebar -->
       <div class="sidebar">
         <a href="/places/east-london-walk" class="side-card">
           <div class="side-label">🚶 From the Rooms</div>
