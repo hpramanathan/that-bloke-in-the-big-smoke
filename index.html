@@ -90,18 +90,16 @@
       justify-content: center;
     }
 
-    /* Fixed-width nav items so hover text swap doesn't shift neighbours */
     .nav-item {
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
-    .nav-item:nth-child(1) { width: 110px; }
-    .nav-item:nth-child(2) { width: 110px; }
+    .nav-item:nth-child(1) { width: 112px; }
+    .nav-item:nth-child(2) { width: 112px; }
     .nav-item:nth-child(3) { width: 100px; }
-    .nav-item:nth-child(4) { width: 130px; }
-    .nav-item:nth-child(5) { width: 110px; }
+    .nav-item:nth-child(4) { width: 132px; }
+    .nav-item:nth-child(5) { width: 112px; }
 
     .nav-link {
       font-family: var(--font-sans);
@@ -118,7 +116,6 @@
       display: block;
       width: 100%;
     }
-
     .nav-link:hover { color: var(--peach); }
     .nav-link.hovered {
       text-transform: none;
@@ -130,7 +127,7 @@
     .nav-link.walks:hover,
     .nav-link.walks.hovered { color: #f0c0a8; }
 
-    /* HPR monogram */
+    /* HPR — just envelope emoji, enlarges on hover */
     .nav-monogram-wrap { position: relative; flex-shrink: 0; }
 
     .nav-monogram {
@@ -142,43 +139,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-serif);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--peach);
+      font-size: 17px;
       text-decoration: none;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-      letter-spacing: 0.05em;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      line-height: 1;
+    }
+    .nav-monogram:hover {
+      transform: scale(1.15);
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
     }
 
     @keyframes coinflip {
       from { transform: rotateY(0deg); }
       to   { transform: rotateY(360deg); }
     }
-
     .nav-monogram.spinning { animation: coinflip 0.65s ease; }
-
-    .nav-monogram-wrap:hover .monogram-email { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    .monogram-email {
-      position: absolute;
-      top: calc(100% + 6px);
-      left: 50%;
-      transform: translateX(-50%) translateY(-4px);
-      background: var(--cabinet-dark);
-      border: 0.5px solid #5a3a6a;
-      border-radius: 4px;
-      padding: 3px 8px;
-      font-family: var(--font-sans);
-      font-size: 9px;
-      color: var(--lavender);
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s, transform 0.2s;
-      z-index: 200;
-    }
 
     /* ── PULL TAB ── */
     .pull-tab {
@@ -286,18 +262,21 @@
       margin-bottom: 4px;
       letter-spacing: 0.06em;
       min-height: 20px;
-      transition: color 0.15s;
+      transition: color 0.15s, letter-spacing 0.15s, font-weight 0.15s;
     }
-    /* Hover label in warm amber — distinct from default peach */
-    .drawer.lang-hover .drawer-label { color: #f5d060; letter-spacing: 0.03em; }
+    /* Hover label: bright white, lowercase feel, clearly different */
+    .drawer.lang-hover .drawer-label {
+      color: #ffffff;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
 
     .drawer-sub { font-family: var(--font-sans); font-size: 11px; color: #c4a0d4; line-height: 1.4; }
 
     /* ── SEARCH ── */
     .search-section {
       background: var(--cream);
-      padding: 14px 40px;
-      border-bottom: 1px solid var(--cream-dark);
+      padding: 16px 40px;
       display: flex;
       gap: 10px;
       align-items: center;
@@ -305,7 +284,7 @@
     }
 
     .search-wrap {
-      width: 340px;
+      width: 420px;
       position: relative;
       display: flex;
       align-items: center;
@@ -397,13 +376,12 @@
     /* ── INFO STRIP ── */
     .info-strip {
       background: var(--cream);
-      border-bottom: 1px solid var(--cream-dark);
-      padding: 8px 40px;
+      padding: 10px 40px;
       display: flex;
       align-items: center;
       gap: 16px;
       overflow: hidden;
-      min-height: 36px;
+      min-height: 40px;
     }
 
     .strip-label {
@@ -417,9 +395,8 @@
       white-space: nowrap;
     }
 
-    /* Tidbit — left, fixed width */
     .tidbit-half {
-      width: 38%;
+      width: 40%;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -429,7 +406,7 @@
 
     .tidbit-text {
       font-family: var(--font-serif);
-      font-size: 12px;
+      font-size: 13px;
       font-style: italic;
       color: var(--text-mid);
       transition: opacity 0.5s;
@@ -438,7 +415,6 @@
       text-overflow: ellipsis;
     }
 
-    /* Ticker marquee — right, fills remaining space */
     .ticker-half {
       flex: 1;
       display: flex;
@@ -464,8 +440,8 @@
     .ticker-item {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding-right: 40px;
+      gap: 4px;
+      padding-right: 20px;
       font-family: var(--font-sans);
       font-size: 12px;
       color: var(--text-mid);
@@ -476,10 +452,11 @@
     .ticker-item .t-val  { font-weight: 600; }
     .ticker-item .t-val.up   { color: #2a7a4a; }
     .ticker-item .t-val.down { color: #8a2a2a; }
-    .ticker-item .t-sep { color: var(--cream-dark); padding: 0 12px; font-size: 14px; }
+    .ticker-item .t-val.neutral { color: var(--text-mid); }
+    .ticker-item .t-sep { color: #c0b0a0; padding: 0 8px; }
 
     /* ── BODY ── */
-    .site-body { flex: 1; background: var(--cream); padding: 14px 40px 36px; }
+    .site-body { flex: 1; background: var(--cream); padding: 16px 40px 36px; }
 
     .recently-label { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: #7a6a50; margin-bottom: 14px; }
 
@@ -513,7 +490,6 @@
     .spec-desc  { font-family: var(--font-sans); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; flex: 1; }
     .spec-meta  { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); }
 
-    /* Sidebar */
     .sidebar { display: flex; flex-direction: column; gap: 12px; }
 
     .side-card {
@@ -530,7 +506,7 @@
     .side-card:hover { border-color: #b0a090; transform: translateY(-1px); }
 
     .side-label { font-family: var(--font-sans); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
-    .side-title { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: var(--text-dark); line-height: 1.3; flex: 1; }
+    .side-title { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: var(--text-dark); line-height: 1.3; }
     .side-desc  { font-family: var(--font-sans); font-size: 12px; color: var(--text-mid); line-height: 1.5; flex: 1; }
     .side-meta  { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); margin-top: 4px; }
 
@@ -559,15 +535,14 @@
   <nav class="site-nav">
     <a href="/" class="nav-title">That Bloke in the Big Smoke</a>
     <div class="nav-links">
-      <div class="nav-item"><a href="/study" class="nav-link" data-default="👤 The Study" data-hover="about me">👤 The Study</a></div>
+      <div class="nav-item"><a href="/study" class="nav-link" data-default="🧑 The Study" data-hover="about me">🧑 The Study</a></div>
       <div class="nav-item"><a href="/studio" class="nav-link" data-default="🎙️ The Studio" data-hover="podcast">🎙️ The Studio</a></div>
       <div class="nav-item"><a href="/press" class="nav-link" data-default="📰 The Press" data-hover="blog">📰 The Press</a></div>
       <div class="nav-item"><a href="/notice-board" class="nav-link" data-default="📌 Notice Board" data-hover="what's on">📌 Notice Board</a></div>
       <div class="nav-item"><a href="http://www.hariwalks.com/" class="nav-link walks" target="_blank" rel="noopener" data-default="🚶 Hari Walks" data-hover="guided walks">🚶 Hari Walks</a></div>
     </div>
     <div class="nav-monogram-wrap">
-      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram">HPR</a>
-      <div class="monogram-email">✉️ hari@ramanathan.co.uk</div>
+      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram" title="Email Hari">✉️</a>
     </div>
   </nav>
 
@@ -586,27 +561,27 @@
       </div>
     </div>
     <div class="drawer-row">
-      <a href="/sights"  class="drawer" data-labels='["SIGHTS","DRISHTI (दृष्टि)","BLICK (DE)","VISTA (ES)","MANZARA (TR)","ZRAK (HR)"]'>
+      <a href="/sights" class="drawer" data-labels='["SIGHTS","drishti 🇮🇳","blick 🇩🇪","vista 🇪🇸","manzara 🇹🇷","zrak 🇭🇷"]'>
         <div class="drawer-pull"></div><span class="drawer-icon">📷</span>
         <div class="drawer-label">SIGHTS</div><div class="drawer-sub">Flickr · YouTube</div>
       </a>
-      <a href="/sounds"  class="drawer" data-labels='["SOUNDS","ISAI (இசை)","KLANG (DE)","SON (FR)","SES (TR)","ZVUK (RU)"]'>
+      <a href="/sounds" class="drawer" data-labels='["SOUNDS","isai 🇮🇳","klang 🇩🇪","son 🇫🇷","ses 🇹🇷","zvuk 🇷🇺"]'>
         <div class="drawer-pull"></div><span class="drawer-icon">🎵</span>
         <div class="drawer-label">SOUNDS</div><div class="drawer-sub">Spotify · Podcasts</div>
       </a>
-      <a href="/screens" class="drawer" data-labels='["SCREENS","THIRAIPADAM (திரை)","BILDSCHIRM (DE)","ÉCRAN (FR)","PANTALLA (ES)","EKRAN (TR)"]'>
+      <a href="/screens" class="drawer" data-labels='["SCREENS","thiraipadam 🇮🇳","bildschirm 🇩🇪","écran 🇫🇷","pantalla 🇪🇸","ekran 🇹🇷"]'>
         <div class="drawer-pull"></div><span class="drawer-icon">🎬</span>
         <div class="drawer-label">SCREENS</div><div class="drawer-sub">IMDb · JustWatch · BBC</div>
       </a>
-      <a href="/places"  class="drawer" data-labels='["PLACES","IDAM (இடம்)","ORT (DE)","LIEU (FR)","LUGAR (ES)","MIEJSCE (PL)"]'>
+      <a href="/places" class="drawer" data-labels='["PLACES","idam 🇮🇳","ort 🇩🇪","lieu 🇫🇷","lugar 🇪🇸","miejsce 🇵🇱"]'>
         <div class="drawer-pull"></div><span class="drawer-icon">🗺️</span>
         <div class="drawer-label">PLACES</div><div class="drawer-sub">Walks · Maps</div>
       </a>
-      <a href="/threads" class="drawer" data-labels='["THREADS","SUTRU (சுற்று)","FADEN (DE)","FIL (FR)","HILO (ES)","NIĆ (PL)"]'>
+      <a href="/threads" class="drawer" data-labels='["THREADS","sutru 🇮🇳","faden 🇩🇪","fil 🇫🇷","hilo 🇪🇸","niĆ 🇵🇱"]'>
         <div class="drawer-pull"></div><span class="drawer-icon">🔗</span>
         <div class="drawer-label">THREADS</div><div class="drawer-sub">Links · References</div>
       </a>
-      <a href="/words"   class="drawer" data-labels='["WORDS","VAARTAI (வார்த்தை)","WORT (DE)","MOT (FR)","PALABRA (ES)","SŁOWO (PL)"]'>
+      <a href="/words" class="drawer" data-labels='["WORDS","vaartai 🇮🇳","wort 🇩🇪","mot 🇫🇷","palabra 🇪🇸","słowo 🇵🇱"]'>
         <div class="drawer-pull"></div><span class="drawer-icon">✍️</span>
         <div class="drawer-label">WORDS</div><div class="drawer-sub">Archive · Essays</div>
       </a>
@@ -632,7 +607,7 @@
       <span class="tidbit-text" id="tidbit-text"></span>
     </div>
     <div class="ticker-half">
-      <span class="strip-label" id="ticker-label">Live</span>
+      <span class="strip-label">Markets</span>
       <div class="ticker-track-wrap">
         <div class="ticker-track" id="ticker-track"></div>
       </div>
@@ -697,10 +672,9 @@
   </footer>
 
 <script>
-// ── Nav label swap (fixed width prevents reflow) ──
+// ── Nav label swap ──
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('mouseenter', function() {
-    this.dataset.orig = this.innerHTML;
     this.innerHTML = this.dataset.hover;
     this.classList.add('hovered');
   });
@@ -710,7 +684,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// ── HPR monogram spin ──
+// ── HPR envelope — spin on hover + interval ──
 const monogram = document.getElementById('hpr-monogram');
 function spinMonogram() {
   monogram.classList.remove('spinning');
@@ -737,7 +711,7 @@ wunder.addEventListener('mouseenter', () => {
   wunder.textContent = wStates[wIdx].text;
 });
 
-// ── Drawer label language cycle ──
+// ── Drawer language cycle ──
 const drawerIndices = {};
 document.querySelectorAll('.drawer').forEach((drawer, i) => {
   drawerIndices[i] = 0;
@@ -809,63 +783,76 @@ const tidbits = [
   'London has over 170 museums. Most are free.',
   'The Tamil word alamaari travelled from Latin through Portuguese to reach South Asia.',
   'Carnatic music has 72 parent scales. Western music has 2.',
-  '"Pyjamas" comes from the Persian pāy-jāma — leg garment.',
-  '"Thug" comes from the Hindi ṭhag — deceiver.',
+  '"Pyjamas" comes from Persian pāy-jāma — leg garment.',
+  '"Thug" comes from Hindi ṭhag — deceiver.',
+  '"Jungle" comes from Sanskrit jangala — rough terrain.',
+  '"Bungalow" comes from Hindi banglā — house in the Bengal style.',
 ];
 let tIdx = 0;
 const tidbitEl = document.getElementById('tidbit-text');
 function rotateTidbit() {
   tidbitEl.style.opacity = '0';
-  setTimeout(() => { tIdx = (tIdx + 1) % tidbits.length; tidbitEl.textContent = tidbits[tIdx]; tidbitEl.style.opacity = '1'; }, 500);
+  setTimeout(() => {
+    tIdx = (tIdx + 1) % tidbits.length;
+    tidbitEl.textContent = tidbits[tIdx];
+    tidbitEl.style.opacity = '1';
+  }, 500);
 }
 tidbitEl.textContent = tidbits[0];
 setInterval(rotateTidbit, 9000);
 
-// ── Live marquee ticker ──
+// ── Markets ticker — continuous scrolling marquee ──
 const track = document.getElementById('ticker-track');
-const tickerLabelEl = document.getElementById('ticker-label');
-let tickerItems = [];
 let marqueeAnim = null;
+
+const indices = [
+  { symbol: '^N225',  name: 'Nikkei',    flag: '🇯🇵' },
+  { symbol: '^JKSE',  name: 'IDX',       flag: '🇮🇩' },
+  { symbol: '^STI',   name: 'SGX',       flag: '🇸🇬' },
+  { symbol: '^BSESN', name: 'Sensex',    flag: '🇮🇳' },
+  { symbol: '^AORD',  name: 'ASX 200',   flag: '🇦🇺' },
+  { symbol: '^HSI',   name: 'Hang Seng', flag: '🇭🇰' },
+  { symbol: '^GDAXI', name: 'DAX',       flag: '🇩🇪' },
+  { symbol: '^FTSE',  name: 'FTSE 100',  flag: '🇬🇧' },
+  { symbol: '^FCHI',  name: 'CAC 40',    flag: '🇫🇷' },
+  { symbol: '^GSPC',  name: 'S&P 500',   flag: '🇺🇸' },
+  { symbol: '^DJI',   name: 'Dow Jones', flag: '🇺🇸' },
+  { symbol: '^IXIC',  name: 'Nasdaq',    flag: '🇺🇸' },
+];
 
 function buildMarquee(items) {
   if (!items.length) return;
-  tickerItems = items;
-  // Double items so seamless loop
-  const all = [...items, ...items];
-  track.innerHTML = all.map(item => `
-    <span class="ticker-item">
-      <span>${item.icon}</span>
+  // Triple for seamless loop
+  const all = [...items, ...items, ...items];
+  track.innerHTML = all.map(item =>
+    `<span class="ticker-item">
+      <span>${item.flag}</span>
       <span class="t-name">${item.name}</span>
       <span class="t-val ${item.cls}">${item.value}</span>
-      <span class="t-sep">·</span>
-    </span>
-  `).join('');
+      <span class="t-sep">|</span>
+    </span>`
+  ).join('');
 
-  // Start marquee
-  let pos = 0;
-  const halfWidth = track.scrollWidth / 2;
   if (marqueeAnim) cancelAnimationFrame(marqueeAnim);
+  let pos = 0;
+  const oneThird = track.scrollWidth / 3;
   function step() {
-    pos += 0.5;
-    if (pos >= halfWidth) pos = 0;
+    pos += 0.4;
+    if (pos >= oneThird) pos = 0;
     track.style.transform = `translateX(-${pos}px)`;
     marqueeAnim = requestAnimationFrame(step);
   }
   step();
 }
 
-function appendToTicker(newItems, label) {
-  tickerLabelEl.textContent = label;
-  tickerItems = [...tickerItems, ...newItems];
-  buildMarquee(tickerItems);
-}
+// Seed while loading
+buildMarquee(indices.map(i => ({ flag: i.flag, name: i.name, value: '---', cls: 'neutral' })));
 
-// Stocks
 async function fetchStock(symbol) {
   try {
     const url   = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=2d`;
     const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-    const res   = await fetch(proxy, { signal: AbortSignal.timeout(8000) });
+    const res   = await fetch(proxy, { signal: AbortSignal.timeout(10000) });
     const json  = await res.json();
     const meta  = json.chart.result[0].meta;
     const price = meta.regularMarketPrice;
@@ -875,84 +862,27 @@ async function fetchStock(symbol) {
   } catch { return { ok: false }; }
 }
 
-const indices = [
-  { symbol: '^FTSE',  name: 'FTSE 100',   flag: '🇬🇧', tz: 'London'   },
-  { symbol: '^N225',  name: 'Nikkei 225', flag: '🇯🇵', tz: 'Tokyo'    },
-  { symbol: '^BSESN', name: 'Sensex',     flag: '🇮🇳', tz: 'Mumbai'   },
-  { symbol: '^HSI',   name: 'Hang Seng',  flag: '🇭🇰', tz: 'Hong Kong'},
-  { symbol: '^GDAXI', name: 'DAX',        flag: '🇩🇪', tz: 'Frankfurt'},
-  { symbol: '^GSPC',  name: 'S&P 500',    flag: '🇺🇸', tz: 'New York' },
-  { symbol: '^AORD',  name: 'ASX 200',    flag: '🇦🇺', tz: 'Sydney'   },
-  { symbol: '^JKSE',  name: 'IDX Comp.',  flag: '🇮🇩', tz: 'Jakarta'  },
-];
-
-async function loadAllData() {
-  const stockItems = [];
+async function loadMarkets() {
+  const items = [];
   for (const idx of indices) {
     const data = await fetchStock(idx.symbol);
-    if (data.ok) {
-      const chg = data.change;
-      const arrow = chg >= 0 ? '▲' : '▼';
-      stockItems.push({
-        icon: idx.flag,
-        name: idx.name,
-        value: `${Number(data.price.toFixed(0)).toLocaleString()} ${arrow}${Math.abs(chg).toFixed(2)}%`,
-        cls: chg >= 0 ? 'up' : 'down',
-      });
-    }
-  }
-
-  // Weather
-  let weatherItem = null;
-  try {
-    const locRes = await fetch('https://ip-api.com/json/?fields=city,country,lat,lon', { signal: AbortSignal.timeout(5000) });
-    const loc    = await locRes.json();
-    const wxRes  = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current_weather=true`, { signal: AbortSignal.timeout(5000) });
-    const wx     = await wxRes.json();
-    const temp   = wx.current_weather.temperature;
-    const code   = wx.current_weather.weathercode;
-    const icons  = [['☀️',0],['⛅',2],['☁️',3],['🌫️',48],['🌧️',67],['❄️',77],['🌦️',82],['⛈️',99]];
-    const icon   = (icons.find(([,max]) => code <= max) || ['🌡️'])[0];
-    weatherItem  = { icon, name: `${loc.city}`, value: `${temp}°C`, cls: 'neutral' };
-  } catch {}
-
-  // Headlines
-  const headlineItems = [];
-  try {
-    const rss  = 'https://feeds.bbcnews.com/news/rss.xml';
-    const res  = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(rss)}`, { signal: AbortSignal.timeout(8000) });
-    const text = await res.text();
-    const doc  = new DOMParser().parseFromString(text, 'text/xml');
-    Array.from(doc.querySelectorAll('item')).slice(0, 6).forEach(item => {
-      const title = item.querySelector('title')?.textContent || '';
-      if (title) headlineItems.push({ icon: '📰', name: '', value: title, cls: 'neutral' });
+    const chg  = data.ok ? data.change : null;
+    const arrow = chg == null ? '' : (chg >= 0 ? ' ▲' : ' ▼');
+    const val   = data.ok
+      ? `${Number(data.price.toFixed(0)).toLocaleString()}${arrow}${chg != null ? Math.abs(chg).toFixed(2)+'%' : ''}`
+      : '—';
+    items.push({
+      flag: idx.flag,
+      name: idx.name,
+      value: val,
+      cls: data.ok ? (data.change >= 0 ? 'up' : 'down') : 'neutral',
     });
-  } catch {}
-
-  // Build combined ticker
-  const all = [];
-  if (stockItems.length) all.push(...stockItems);
-  if (weatherItem) all.push(weatherItem);
-  if (headlineItems.length) all.push(...headlineItems);
-
-  if (all.length) {
-    tickerLabelEl.textContent = 'Live';
-    buildMarquee(all);
-  } else {
-    track.innerHTML = '<span class="ticker-item"><span>Live data loading…</span></span>';
   }
+  buildMarquee(items);
 }
 
-// Seed with placeholder while loading
-buildMarquee([
-  { icon: '⏳', name: 'Markets', value: 'fetching…', cls: 'neutral' },
-  { icon: '🌤️', name: 'Weather', value: 'fetching…', cls: 'neutral' },
-  { icon: '📰', name: 'Headlines', value: 'fetching…', cls: 'neutral' },
-]);
-
-loadAllData();
-// Refresh every 5 minutes
-setInterval(loadAllData, 300000);
+loadMarkets();
+setInterval(loadMarkets, 300000);
 </script>
 
 </body>
