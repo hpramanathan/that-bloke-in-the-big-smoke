@@ -97,7 +97,7 @@
     }
     .nav-item:nth-child(1) { width: 112px; }
     .nav-item:nth-child(2) { width: 112px; }
-    .nav-item:nth-child(3) { width: 100px; }
+    .nav-item:nth-child(3) { width: 120px; }
     .nav-item:nth-child(4) { width: 132px; }
     .nav-item:nth-child(5) { width: 112px; }
 
@@ -396,7 +396,7 @@
     }
 
     .tidbit-half {
-      width: 40%;
+      width: 50%;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -440,8 +440,7 @@
     .ticker-item {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      padding-right: 20px;
+      gap: 3px;
       font-family: var(--font-sans);
       font-size: 12px;
       color: var(--text-mid);
@@ -449,11 +448,11 @@
     }
 
     .ticker-item .t-name { font-weight: 600; color: var(--text-dark); }
-    .ticker-item .t-val  { font-weight: 600; }
+    .ticker-item .t-val  { font-weight: 600; padding-right: 14px; }
     .ticker-item .t-val.up   { color: #2a7a4a; }
     .ticker-item .t-val.down { color: #8a2a2a; }
     .ticker-item .t-val.neutral { color: var(--text-mid); }
-    .ticker-item .t-sep { color: #c0b0a0; padding: 0 8px; }
+    .ticker-item .t-sep { color: #b0a090; padding: 0 3px; }
 
     /* ── BODY ── */
     .site-body { flex: 1; background: var(--cream); padding: 16px 40px 36px; }
@@ -484,7 +483,7 @@
       letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px;
       display: flex; align-items: center; gap: 5px;
     }
-    .spec-tag::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    /* bullet dot removed from spec-tag */
 
     .spec-title { font-family: var(--font-sans); font-size: 19px; font-weight: 700; color: var(--text-dark); margin-bottom: 7px; line-height: 1.2; }
     .spec-desc  { font-family: var(--font-sans); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; flex: 1; }
@@ -537,12 +536,12 @@
     <div class="nav-links">
       <div class="nav-item"><a href="/study" class="nav-link" data-default="🧑 The Study" data-hover="about me">🧑 The Study</a></div>
       <div class="nav-item"><a href="/studio" class="nav-link" data-default="🎙️ The Studio" data-hover="podcast">🎙️ The Studio</a></div>
-      <div class="nav-item"><a href="/press" class="nav-link" data-default="📰 The Press" data-hover="blog">📰 The Press</a></div>
+      <div class="nav-item"><a href="/bullpen" class="nav-link" data-default="📰 The Bullpen" data-hover="blog">📰 The Bullpen</a></div>
       <div class="nav-item"><a href="/notice-board" class="nav-link" data-default="📌 Notice Board" data-hover="what's on">📌 Notice Board</a></div>
       <div class="nav-item"><a href="http://www.hariwalks.com/" class="nav-link walks" target="_blank" rel="noopener" data-default="🚶 Hari Walks" data-hover="guided walks">🚶 Hari Walks</a></div>
     </div>
     <div class="nav-monogram-wrap">
-      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram" title="Email Hari">✉️</a>
+      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram" title="Email Hari">📧</a>
     </div>
   </nav>
 
@@ -837,7 +836,7 @@ function buildMarquee(items) {
   let pos = 0;
   const oneThird = track.scrollWidth / 3;
   function step() {
-    pos += 0.4;
+    pos += 0.6;
     if (pos >= oneThird) pos = 0;
     track.style.transform = `translateX(-${pos}px)`;
     marqueeAnim = requestAnimationFrame(step);
