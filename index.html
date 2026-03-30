@@ -140,16 +140,26 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-sans);
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--peach);
+      font-size: 19px;
+      font-weight: 900;
+      color: #7ec8f0;
       text-decoration: none;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
       transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
       line-height: 1;
       letter-spacing: 0;
+      text-shadow:
+        0 1px 0 #1a4a6a,
+        0 2px 0 #163d58,
+        0 3px 0 #112f45,
+        0 3px 6px rgba(0,0,0,0.4);
+      position: relative;
     }
-    .nav-monogram:hover { color: #ffffff; }
+    .nav-monogram span {
+      position: relative;
+      top: -1px;
+    }
+    .nav-monogram:hover { color: #a8dcf8; }
     .nav-monogram:hover {
       transform: scale(1.15);
       box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
@@ -558,7 +568,7 @@
       <div class="nav-item"><a href="http://www.hariwalks.com/" class="nav-link walks" target="_blank" rel="noopener" data-default="🚶 Hari Walks" data-hover="guided walks">🚶 Hari Walks</a></div>
     </div>
     <div class="nav-monogram-wrap">
-      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram" title="Email Hari">@</a>
+      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram" title="Email Hari"><span>@</span></a>
     </div>
   </nav>
 
