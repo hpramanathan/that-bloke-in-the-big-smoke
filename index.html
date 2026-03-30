@@ -139,13 +139,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      line-height: 1;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--peach);
       text-decoration: none;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
+      line-height: 1;
+      letter-spacing: 0;
     }
+    .nav-monogram:hover { color: #ffffff; }
     .nav-monogram:hover {
       transform: scale(1.15);
       box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
@@ -454,7 +458,18 @@
     .ticker-item .t-val.up   { color: #2a7a4a; }
     .ticker-item .t-val.down { color: #8a2a2a; }
     .ticker-item .t-val.neutral { color: var(--text-mid); }
+    .ticker-item .t-val.loading {
+      color: var(--text-muted);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
     .ticker-item .t-sep { color: #b0a090; margin: 0 4px; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+    .t-val.loading { color: var(--text-muted) !important; animation: pulse 1.2s ease-in-out infinite; }
 
     /* ── BODY ── */
     .site-body { flex: 1; background: var(--cream); padding: 16px 40px 36px; }
@@ -543,7 +558,7 @@
       <div class="nav-item"><a href="http://www.hariwalks.com/" class="nav-link walks" target="_blank" rel="noopener" data-default="🚶 Hari Walks" data-hover="guided walks">🚶 Hari Walks</a></div>
     </div>
     <div class="nav-monogram-wrap">
-      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram" title="Email Hari">📨</a>
+      <a href="mailto:hari@ramanathan.co.uk" class="nav-monogram" id="hpr-monogram" title="Email Hari">@</a>
     </div>
   </nav>
 
@@ -846,8 +861,8 @@ function buildMarquee(items) {
   step();
 }
 
-// Seed while loading
-buildMarquee(indices.map(i => ({ flag: i.flag, name: i.name, value: '---', cls: 'neutral' })));
+// Seed while loading — dashes pulse to show it's fetching
+buildMarquee(indices.map(i => ({ flag: i.flag, name: i.name, value: '···', cls: 'loading' })));
 
 async function fetchStock(symbol) {
   try {
