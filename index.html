@@ -721,20 +721,15 @@ function spinMonogram() {
 monogram.addEventListener('mouseenter', spinMonogram);
 setInterval(spinMonogram, 12000);
 
-// ── Wunderkammer / Alamaari cycle on mouseenter ──
+// ── Wunderkammer — simple two-state hover ──
 const wunder = document.getElementById('wunder-word');
-const wStates = [
-  { cls: 'state-fraktur',  text: 'Wunderkammer' },
-  { cls: 'state-cinzel',   text: 'Wunderkammer' },
-  { cls: 'state-medieval', text: 'Wunderkammer' },
-  { cls: 'state-alamaari', text: 'Alamaari'     },
-];
-let wIdx = 0;
 wunder.addEventListener('mouseenter', () => {
-  wunder.classList.remove(wStates[wIdx].cls);
-  wIdx = (wIdx + 1) % wStates.length;
-  wunder.classList.add(wStates[wIdx].cls);
-  wunder.textContent = wStates[wIdx].text;
+  wunder.classList.remove('state-fraktur');
+  wunder.classList.add('state-cinzel');
+});
+wunder.addEventListener('mouseleave', () => {
+  wunder.classList.remove('state-cinzel');
+  wunder.classList.add('state-fraktur');
 });
 
 // ── Drawer language cycle ──
