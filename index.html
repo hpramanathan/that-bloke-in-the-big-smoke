@@ -291,7 +291,7 @@
     /* ── SEARCH ── */
     .search-section {
       background: var(--cream);
-      padding: 16px 40px;
+      padding: 20px 40px 10px;
       display: flex;
       gap: 10px;
       align-items: center;
@@ -486,7 +486,7 @@
 
     .recently-label { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: #7a6a50; margin-bottom: 14px; }
 
-    .body-grid { display: grid; grid-template-columns: 1fr 1fr 300px; gap: 16px; align-items: start; }
+    .body-grid { display: grid; grid-template-columns: 1fr 1fr 300px; gap: 16px; align-items: stretch; }
 
     .spec-card {
       background: var(--card-white);
@@ -516,7 +516,7 @@
     .spec-desc  { font-family: var(--font-sans); font-size: 14px; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; flex: 1; }
     .spec-meta  { font-family: var(--font-sans); font-size: 11px; color: var(--text-muted); }
 
-    .sidebar { display: flex; flex-direction: column; gap: 12px; }
+    .sidebar { display: flex; flex-direction: column; gap: 12px; height: 100%; }
 
     .side-card {
       background: var(--card-white);
@@ -528,6 +528,7 @@
       flex-direction: column;
       gap: 4px;
       transition: border-color 0.2s, transform 0.15s;
+      flex: 1;
     }
     .side-card:hover { border-color: #b0a090; transform: translateY(-1px); }
 
